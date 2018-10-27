@@ -1,24 +1,38 @@
-<p id="notice"><%= notice %></p>
+<% content_for :body_class, 'bg-light' %>
 
-<p>
-  <strong>Surname:</strong>
-  <%= @carrier.surname %>
-</p>
+<section class="section instrument-show">
+  <div class="columns">
+    <div class="column is-8">
+      <h1 class="title is-2"><%= @carrier.surname %></h1>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @carrier.lastname %>
-</p>
+      <ul class="pv1">
+        <% if @carrier.lastname? %>
+        <li class="inline-block pr3"><%= @carrier.lastname %></li>
+        <% end %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @carrier.description %>
-</p>
+      <div class="feature-image">
+        <%= image_tag(@carrier.image_url(:default)) %>
+      </div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @carrier.price %>
-</p>
+      <div class="content pa4 mt3 bg-white border-radius-3">
 
-<%= link_to 'Edit', edit_carrier_path(@carrier) %> |
-<%= link_to 'Back', carriers_path %>
+      <h3 class="subtitle is-4">Description</h3>
+      <%= @carrier.description %>
+
+      <h3 class="subtitle is-4 pt5">Product Specs</h3>
+
+    </div>
+    </div>
+    <div class="column is-3 is-offset-1">
+      <div class="bg-white pa4 border-radius-3">
+        <h4 class="title is-5 has-text-centered"><%= number_to_currency(@carrier.price) %></h4>
+        <p class="has-text-centered mb4">Sold by <%= @carrier.user.name %></p>
+        <%= button_to 'Add to cart', '#', class: 'button is-warning add-to-cart' %>
+      </div>
+    </div>
+  </div>
+
+  <% if carrier_author(@carrier) %>
+    <%= link_to 'Edit', edit_carrier_path(@carrier), class: 'button' %>
+  <% end %>
+</section>
