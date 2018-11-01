@@ -17,9 +17,15 @@
 $link: #444;
 $link-hover: #222;
 
+$family-serif: "Helvetica", serif;
+$family-primary: $family-serif;
+
 @import "bulma";
 @import "functions";
 
+.hero.is-warning{
+  background-color: black;
+}
 .notification {
   border-radius: 0;
 }

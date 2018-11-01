@@ -8,6 +8,15 @@
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
+    <style media="screen">
+      .footer {
+        height:50px;
+        margin-top: 150px; /* Höhe des Footers */
+        background-color: black;
+        text-align: center;
+        color: white;
+        }
+    </style>
   </head>
 
   <body class="<%= yield (:body_class) %>">
@@ -79,6 +88,13 @@
     <%= yield %>
 
   </div>
-
   </body>
+  <footer>
+    <div class="footer">
+      <%= link_to root_path, class:"" do %>
+        <h1 style="color:white;" align="center">@iTransport</h1>
+      <% end  %>
+      All rights reserved 2019.</div>
+  </footer>
+
 </html>
