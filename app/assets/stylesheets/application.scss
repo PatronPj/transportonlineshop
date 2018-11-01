@@ -23,6 +23,17 @@ $family-primary: $family-serif;
 @import "bulma";
 @import "functions";
 
+div.instrument.border-light {
+  min-height: 400px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.border-light{
+  border: 2px solid #dddddd;
+}
 .hero.is-warning{
   background-color: black;
 }
