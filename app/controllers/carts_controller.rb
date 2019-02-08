@@ -63,6 +63,30 @@ class CartsController < ApplicationController
     end
   end
 
+  def pay
+    @cart = Cart.find(params[:id])
+    # Set your secret key: remember to change this to your live secret key in production
+    # See your keys here: https://dashboard.stripe.com/account/apikeys
+    Stripe.api_key = "sk_test_ifOfdLGMnT3YOirDT3PYMiAF"
+
+    #Token is created using Checkout or Elements!
+    # Get the payment token ID submitted by the form:
+    token = params[:stripeToken]
+
+    charge = Stripe::Charge.create({
+      amount: @cart.total_price * 100,
+      currency: 'usd',
+      source: token,
+      receipt_email: 's0550596@htw-berlin.de',
+    })
+    @cart.destroy if @cart.id == session[:cart_id]
+    session[:cart_id] = nil
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Successfully bought your Transporter. The Transporter is on its way!' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart

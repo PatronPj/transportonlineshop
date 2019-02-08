@@ -34,8 +34,8 @@
       <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(carrier.price) %></p>
 
       <% if carrier_author(carrier) %>
-         <%= link_to 'Edit', edit_carrier_path(carrier), class: "button is-small" %>
-         <%= link_to 'Delete', carrier, method: :delete, data: { confirm: "Are you sure ?" }, class: "button is-small" %>
+         <%= link_to 'Edit', edit_carrier_path(carrier), class: "button is-warning is-small" %>
+         <%= link_to 'Delete', carrier, method: :delete, data: { confirm: "Are you sure ?" }, class: "button is-danger is-small" %>
       <% end %>
 
     </div>

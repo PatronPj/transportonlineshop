@@ -1,6 +1,23 @@
 <div class="keep-shopping pv1 mt4 has-text-right">
   <%= link_to 'Keep Shopping', carriers_path, class: 'button is-warning' %>
 </div>
+
+<div class="columns align-items-center">
+  <div class="column is-1">
+  <div class="column has-text-left">
+  <strong><h1>Quantity</h1></strong>
+</div>
+</div>
+<div class="column is-1">
+<div class="column has-text-center">
+  <strong><h1>Product</h1></strong>
+</div>
+</div>
+<div class="column has-text-right">
+  <strong><h1>Price</h1></strong>
+</div>
+</div>
+
 <hr />
 <section class="section">
   <%= render(@cart.line_items) %>
@@ -14,10 +31,32 @@
   </div>
   <div class="columns">
     <div class="column has-text-left">
-      <%= button_to 'Empty Cart', @cart, method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger" %>
+      <%= button_to 'Empty Cart', @cart, method: :delete, data: { confirm: "Do you want to empty your cart? " }, class: "button is-danger" %>
     </div>
+
+    <% if current_user != nil %>
+
+      <div class="column has-text-right">
+      <%= form_tag pay_cart_path(@cart) do %>
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_qKX8DXWP9mkgMFdsi8jNiIaA"
+          data-amount=@cart.total_price.to_s
+          data-name="iTransport"
+          data-description="Onlineshop"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+          data-locale="auto"
+          data-currency="eur">
+        </script>
+      <% end %>
+
+    <% end %>
+    <% if current_user == nil %>
     <div class="column has-text-right">
-      <%= button_to 'Buy', @cart, class: "button is-warning" %>
+      <strong><h1 style="color: red;">Please Sign In or Sign Up, in order to buy!</h1></strong>
+    </div>
+    <% end %>
+
     </div>
   </div>
 </section>

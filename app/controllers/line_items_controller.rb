@@ -21,6 +21,7 @@ class LineItemsController < ApplicationController
 
   # GET /line_items/1/edit
   def edit
+    @line_item = LineItem.find_by_id(params[:id])
   end
 
   # POST /line_items
@@ -65,6 +66,21 @@ class LineItemsController < ApplicationController
     end
   end
 
+  def update_quantity
+    @cart = Cart.find(session[:cart_id])
+
+    @line_item = LineItem.find_by_id(params[:id])
+   # @line_item.update_attribute(:quantity)
+    if @line_item.update_attributes(q_params)
+      format.html { redirect_to @cart, notice: 'Line item was successfully updated.' }
+      format.json { head :no_content }
+    else
+      format.html { render :edit }
+      format.json { head :no_content }
+    end
+  end
+  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_line_item
@@ -74,5 +90,9 @@ class LineItemsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
       params.require(:line_item).permit(:carrier_id)
+    end
+
+    def q_params
+      params.require(:line_item).permit(:quantity)
     end
 end

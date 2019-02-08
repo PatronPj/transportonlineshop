@@ -2,7 +2,7 @@ class Carrier < ApplicationRecord
   before_destroy :not_referenced_by_any_line_item
   has_many :line_items
   mount_uploader :image, ImageUploader
-  serialize :image, JSON # If you youse SQLITE, add this line
+  serialize :image, JSON # If you use SQLITE, add this line
   belongs_to :user, optional: true
 
   validates :surname, :lastname, :price, presence: true

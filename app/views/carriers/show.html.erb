@@ -19,8 +19,6 @@
       <h3 class="subtitle is-4">Description</h3>
       <%= @carrier.description %>
 
-      <h3 class="subtitle is-4 pt5">Product Specs</h3>
-
     </div>
     </div>
     <div class="column is-3 is-offset-1">
@@ -33,6 +31,6 @@
   </div>
 
   <% if carrier_author(@carrier) %>
-    <%= link_to 'Edit', edit_carrier_path(@carrier), class: 'button' %>
+    <%= link_to 'Edit', edit_carrier_path(@carrier), class: 'button is-warning' %>
   <% end %>
 </section>
