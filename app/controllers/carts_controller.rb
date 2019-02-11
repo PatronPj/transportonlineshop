@@ -75,16 +75,18 @@ class CartsController < ApplicationController
 
     charge = Stripe::Charge.create({
       amount: @cart.total_price * 100,
-      currency: 'usd',
+      currency: 'eur',
       source: token,
       receipt_email: 's0550596@htw-berlin.de',
     })
+
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'Successfully bought your Transporter. The Transporter is on its way!' }
       format.json { head :no_content }
     end
+
   end
 
   private
