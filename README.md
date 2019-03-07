@@ -1,4 +1,4 @@
-# iTransport
+# iTransport E-Commerce-Plattform
 
 Within the project, **Pujan Chamani Cheri** developed a e-commerce plattform based on ruby. In the course of this they made use of the python framework: Ruby on Rails.
 
