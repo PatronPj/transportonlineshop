@@ -39,11 +39,16 @@ ruby 2.5.0p0 (2017-12-25 revision 61468) [x86_64-darwin17]
 ### Installing
 
 Clone this project into a directory you want and change into this directory.
+Run the following command:
+
+```
+$ rails db:seed
+```
 
 Now you need to run the local server:
 
 ```
-$ railsserver
+$ rails server
 ```
 The terminal outputs the starting development server. Call the server.
 
@@ -52,13 +57,13 @@ The terminal outputs the starting development server. Call the server.
 (username, password)
 
 ```
-(admin, admin)
-(xatar, testo1234)
-(arafat, testo1234)
-(cihanKind, testo1234)
-(kevinKind, testo1234)
-(testUser, testo1234)
-(NewUser, testo1234)
+(mario@test.com,test1234!)
+(luigi@test.com,test1234!)
+(peach@test.com,test1234!)
+(todd@test.com,test1234!)
+(donkey@test.com,test1234!)
+(wario@test.com,test1234!)
+(browser@test.com,test1234!)
 ```
 
 ## Authors
