@@ -35,13 +35,6 @@ Now let’s confirm which version was installed:
 $ ruby --version
 ruby 2.5.0p0 (2017-12-25 revision 61468) [x86_64-darwin17]
 ```
-Then you need to install
-```
-$ sudo pip3 install virtualenv
-$ pip3 install virtualenvwrapper
-$ pip3 install django
-
-```
 
 ### Installing
 
