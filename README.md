@@ -1,6 +1,6 @@
 # iTransport E-Commerce-Plattform
 
-Within the project, **Pujan Chamani Cheri** developed a e-commerce plattform based on ruby. In the course of this they made use of the python framework: Ruby on Rails.
+Within the project, **Pujan Chamani Cheri** developed a e-commerce plattform based on ruby. In the course of this he made use of the framework: Ruby on Rails.
 
 The e-commerce plattform is called iTransport. It is made for two kind of Users: client and contractors. On the one hand you can earn money and on the other hand you can have your packages sent. In order to have your packages sent, you need to create a job on the iTransport e-commerce plattform, as a user: client. As the user: contractor, you are able to "buy" transporters, created by other users of the plattform.
 
